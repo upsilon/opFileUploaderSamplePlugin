@@ -1,0 +1,29 @@
+uploader_list:
+  class: sfRequestRoute
+  url: /uploader
+  params: { module: uploader, action: index }
+  requirements: { sf_method: [get] }
+
+uploader_new:
+  class: sfRequestRoute
+  url: /uploader/new
+  params: { module: uploader, action: new }
+  requirements: { sf_method: [get] }
+
+uploader_create:
+  class: sfRequestRoute
+  url: /uploader/new
+  params: { module: uploader, action: create }
+  requirements: { sf_method: [post] }
+
+uploader_show:
+  class: sfDoctrineRoute
+  url: /uploader/show/:id
+  params: { module: uploader, action: show }
+  options: { model: MemberFile, type: object }
+  requirements: { sf_method: [get], id: \d+ }
+
+uploader_nodefaults:
+  class: sfRoute
+  url: /uploader/*
+  params: { module: default, action: error }

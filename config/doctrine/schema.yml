@@ -1,0 +1,14 @@
+options:
+  charset: utf8
+  actAs: [Timestampable]
+
+MemberFile:
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true }
+    member_id: { type: integer(4), notnull: false }
+    file_id: { type: integer(4), notnull: false }
+    description: { type: string, notnull: true }
+  relations:
+    Member: { foreign: id, onDelete: cascade }
+    File: { foreign: id, onDelete: cascade }
+
